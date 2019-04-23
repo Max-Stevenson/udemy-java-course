@@ -58,7 +58,11 @@ public class Hamburger {
     }
 
     public void addAdditionalItem(String itemName, double itemPrice) {
-        this.additionalItems.put(itemName, itemPrice);
+        if (this.getAdditionalItems().size() < 4) {
+            this.additionalItems.put(itemName, itemPrice);
+        } else {
+            System.out.println("You can only have 4 additional items!");
+        }
     }
 
     public double getTotalPrice() {
