@@ -8,7 +8,7 @@ public class Hamburger {
     private String rollType;
     private String meatType;
     private double price;
-    private Map<String, Double> additionalItems = new HashMap<>();
+    protected Map<String, Double> additionalItems = new HashMap<>();
 
     public Hamburger(String nameOfBurger, String rollType, String meatType, double price) {
         this.nameOfBurger = nameOfBurger;
