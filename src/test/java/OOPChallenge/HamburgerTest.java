@@ -5,11 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class HamburgerTest {
-    private Hamburger hamburger =
-            new Hamburger("TestBurger",
-                    "TestRoll",
-                    "TestMeat",
-                    4.99);
+    private Hamburger hamburger = new Hamburger("TestBurger", "TestRoll", "TestMeat", 4.99);
 
     @Test
     void totalPriceTest() {
