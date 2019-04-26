@@ -57,8 +57,12 @@ public class Hamburger {
         this.additionalItems = additionalItems;
     }
 
+    public boolean canAddAdditional() {
+        return (this.getAdditionalItems().size() < 4);
+    }
+
     public void addAdditionalItem(String itemName, double itemPrice) {
-        if (this.getAdditionalItems().size() < 4) {
+        if (canAddAdditional()) {
             this.additionalItems.put(itemName, itemPrice);
         } else {
             System.out.println("You can only have 4 additional items!");
