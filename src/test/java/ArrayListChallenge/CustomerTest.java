@@ -13,4 +13,5 @@ class CustomerTest {
         testCustomer.addTransaction(2.00);
         assertEquals(2.00, testCustomer.getTransactions().get(1));
     }
+
 }

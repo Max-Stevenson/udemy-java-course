@@ -3,12 +3,13 @@ package ArrayListChallenge;
 import java.util.ArrayList;
 
 public class Customer {
-    private ArrayList<Double> transactions = new ArrayList<>();
+    private ArrayList<Double> transactions;
     private String name;
 
     public Customer(String name, double initialAmount) {
-        this.name = name;
-        this.addTransaction(initialAmount);
+            this.name = name;
+            this.transactions = new ArrayList<>();
+            this.addTransaction(initialAmount);
     }
 
     public String getName() {
@@ -23,11 +24,7 @@ public class Customer {
         return transactions;
     }
 
-    public void setTransactions(ArrayList<Double> transactions) {
-        this.transactions = transactions;
-    }
-
-    public void addTransaction (Double amount) {
+    public void addTransaction (double amount) {
         this.transactions.add(amount);
     }
 }
