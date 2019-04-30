@@ -25,11 +25,13 @@ public class Branch {
         return false;
     }
 
-    public void addCustomerTransaction(String customerName, double transactionAmount) {
+    public boolean addCustomerTransaction(String customerName, double transactionAmount) {
         if (checkCustomerExists(customerName)) {
             this.getCustomer(customerName).ifPresent(customer -> customer.addTransaction(transactionAmount));
+            return true;
         } else {
             System.out.println("No customer exists with that name!");
+            return false;
         }
     }
 
@@ -42,8 +44,8 @@ public class Branch {
     }
 
     public boolean checkCustomerExists (String customerName) {
-        return this.customers.stream().
-                anyMatch(x -> customerName.equals(x.getName()));
+        return this.customers.stream()
+                .anyMatch(x -> customerName.equals(x.getName()));
     }
 
     public ArrayList<Customer> getCustomers() {
