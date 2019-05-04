@@ -23,5 +23,8 @@ class BankTest {
 
     @Test
     void checkBranchExists() {
+        testBank.addNewBranch("testBranch");
+        assertTrue(testBank.checkBranchExists("testBranch"));
+        assertFalse(testBank.checkBranchExists("nonExistent"));
     }
 }

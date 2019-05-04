@@ -49,11 +49,10 @@ public class Bank {
 
     public void showCustomersAndTransactions(String branchName) {
         Optional<Branch> branch = getBranch(branchName);
-        branch.ifPresent(x -> {
-            x.getCustomers().forEach(y -> System.out.println(y.getName()));
-            x.getCustomers().forEach(customer -> customer.getTransactions().forEach(System.out::println));
-                });
-
+        branch.ifPresent(x -> x.getCustomers().forEach(y -> {
+            System.out.println(y.getName());
+            y.getTransactions().forEach(System.out::println);
+        }));
     }
 }
 
