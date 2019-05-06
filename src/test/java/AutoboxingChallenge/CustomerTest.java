@@ -1,4 +1,4 @@
-package ArrayListChallenge;
+package AutoboxingChallenge;
 
 import org.junit.jupiter.api.Test;
 
@@ -14,7 +14,7 @@ class CustomerTest {
         assertEquals(2.00, testCustomer.getTransactions().get(1));
     }
 
-    @Test 
+    @Test
     void getBalance() {
         testCustomer.addTransaction(9.00);
         assertEquals(10.00, testCustomer.getBalance());

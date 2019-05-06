@@ -1,6 +1,6 @@
-package ArrayListChallenge;
+package AutoboxingChallenge;
 
-public class ArrayListChallengeApp {
+public class AutoboxingChallengeApp {
     public static void main (String[] args) {
         Bank bank = new Bank("TestBank");
         bank.addNewBranch("TestBranch");
