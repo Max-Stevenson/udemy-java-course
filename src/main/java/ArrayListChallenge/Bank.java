@@ -1,6 +1,5 @@
 package ArrayListChallenge;
 
-import javax.swing.text.html.Option;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -53,6 +52,11 @@ public class Bank {
             System.out.println(y.getName());
             y.getTransactions().forEach(System.out::println);
         }));
+    }
+
+    public void addCustomerTransaction(String branchName, String customerName, double transactionAmount) {
+              getBranch(branchName)
+                     .ifPresent(branch -> branch.addCustomerTransaction(customerName, transactionAmount));
     }
 }
 

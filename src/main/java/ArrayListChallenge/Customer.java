@@ -12,6 +12,10 @@ public class Customer {
             this.addTransaction(initialAmount);
     }
 
+    public double getBalance() {
+        return this.transactions.stream().reduce(0.00, (subtotal, element) -> subtotal + element);
+    }
+
     public String getName() {
         return name;
     }

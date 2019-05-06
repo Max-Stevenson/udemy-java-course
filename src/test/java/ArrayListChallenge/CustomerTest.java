@@ -13,4 +13,10 @@ class CustomerTest {
         testCustomer.addTransaction(2.00);
         assertEquals(2.00, testCustomer.getTransactions().get(1));
     }
+
+    @Test 
+    void getBalance() {
+        testCustomer.addTransaction(9.00);
+        assertEquals(10.00, testCustomer.getBalance());
+    }
 }
