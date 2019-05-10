@@ -32,6 +32,7 @@ public class Album {
         if (doesSongExist(songTitle)) {
             return this.songs.stream().filter(x -> songTitle.equals(x.getSongTitle())).findAny();
         }
+        System.out.println("No song with that title exists in this album!");
         return Optional.empty();
     }
 
