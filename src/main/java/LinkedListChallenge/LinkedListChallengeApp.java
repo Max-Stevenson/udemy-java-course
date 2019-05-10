@@ -22,7 +22,7 @@ public class LinkedListChallengeApp {
                 "testAlbumTwo",
                 "testArtistTwo",
                 "testPlaylist");
-        mediaPlayer.playPlaylist("testPlaylist1");
+        mediaPlayer.playPlaylist("testPlaylist");
 
     }
 }

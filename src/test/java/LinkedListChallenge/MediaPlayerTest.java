@@ -39,4 +39,14 @@ class MediaPlayerTest {
                 "testAlbum", "testArtist", "testPlaylist");
         assertEquals(testSong, testMediaPlayer.getPlaylist("testPlaylist").get().getSongs().get(0));
     }
+
+    @Test
+    void playPlaylist() {
+        testAlbum.addSong(testSong);
+        testMediaPlayer.addAlbum(testAlbum);
+        testMediaPlayer.createNewPlaylist("testPlaylist");
+        testMediaPlayer.addSongToPlaylist("testSong",
+                "testAlbum", "testArtist", "testPlaylist");
+        testMediaPlayer.playPlaylist("testPlaylist");
+    }
 }

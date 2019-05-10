@@ -59,6 +59,29 @@ public class MediaPlayer {
         this.playlists.add(new Playlist(playlistName));
     }
 
+    public void printPlaylist(Playlist playlist) {
+        Iterator<Song> iterator = playlist.getSongs().iterator();
+        String header = "============ " + playlist.getPlaylistName() + " ============";
+        String footer = new String(new char[header.length()]).replace("\0", "=");
+        System.out.println(header);
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next().toString());
+        }
+        System.out.println(footer);
+    }
+
+    public void printMenu() {
+        System.out.println(
+                "Options:\n" +
+                        "0 - Quit program\n" +
+                        "1 - Next song\n" +
+                        "2 - Previous song\n" +
+                        "3 - Replay song\n" +
+                        "4 - List songs in playlist\n" +
+                        "5 - Show menu"
+        );
+    }
+
     public void playPlaylist(String playlistName) {
         Scanner scanner = new Scanner(System.in);
         AtomicBoolean quit = new AtomicBoolean(false);
@@ -70,18 +93,14 @@ public class MediaPlayer {
         }
         ListIterator<Song> finalListIterator = listIterator;
         playlist.ifPresent(p -> {
-            if (!p.getSongs().isEmpty()) {
-                System.out.println("Now Playing " + finalListIterator.next().toString());
-            } else {
-                System.out.println("No songs in playlist!");
-            }
+            printMenu();
             while (!quit.get()){
                 int action = scanner.nextInt();
                 scanner.nextLine();
 
                 switch (action) {
                     case 0:
-                        System.out.println("Playlist complete");
+                        System.out.println("Exiting Playlist");
                         quit.set(true);
                         break;
                     case 1:
@@ -113,12 +132,28 @@ public class MediaPlayer {
                         }
                         break;
                     case 3:
+                        if (forward.get()) {
+                            if (finalListIterator.hasPrevious()) {
+                                System.out.println("Now replaying " + finalListIterator.previous().toString());
+                                forward.set(false);
+                            } else {
+                                System.out.println("Start of playlist " + p.getPlaylistName());
+                            }
+                        } else {
+                            if (finalListIterator.hasNext()) {
+                                System.out.println("Now replaying " + finalListIterator.next().toString());
+                                forward.set(true);
+                            } else {
+                                System.out.println("End of playlist " + p.getPlaylistName());
+                            }
+                        }
                         break;
                     case 4:
+                        this.printPlaylist(p);
                         break;
                     case 5:
+                        this.printMenu();
                         break;
-
                 }
             }
         });
