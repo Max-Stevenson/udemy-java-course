@@ -1,7 +1,7 @@
 package LinkedListChallenge;
 
-import java.util.ArrayList;
-import java.util.Optional;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class MediaPlayer {
     private ArrayList<Album> albums;
@@ -57,6 +57,71 @@ public class MediaPlayer {
 
     public void createNewPlaylist(String playlistName) {
         this.playlists.add(new Playlist(playlistName));
+    }
+
+    public void playPlaylist(String playlistName) {
+        Scanner scanner = new Scanner(System.in);
+        AtomicBoolean quit = new AtomicBoolean(false);
+        AtomicBoolean forward = new AtomicBoolean(true);
+        Optional<Playlist> playlist = this.getPlaylist(playlistName);
+        ListIterator<Song> listIterator = null;
+        if (playlist.isPresent()) {
+             listIterator = playlist.get().getSongs().listIterator();
+        }
+        ListIterator<Song> finalListIterator = listIterator;
+        playlist.ifPresent(p -> {
+            if (!p.getSongs().isEmpty()) {
+                System.out.println("Now Playing " + finalListIterator.next().toString());
+            } else {
+                System.out.println("No songs in playlist!");
+            }
+            while (!quit.get()){
+                int action = scanner.nextInt();
+                scanner.nextLine();
+
+                switch (action) {
+                    case 0:
+                        System.out.println("Playlist complete");
+                        quit.set(true);
+                        break;
+                    case 1:
+                        if (!forward.get()) {
+                            if(finalListIterator.hasNext()) {
+                                finalListIterator.next();
+                            }
+                            forward.set(true);
+                        }
+                        if (finalListIterator.hasNext()) {
+                            System.out.println("Now Playing " + finalListIterator.next().toString());
+                        } else {
+                            System.out.println("End of playlist " + p.getPlaylistName());
+                            forward.set(false);
+                        }
+                        break;
+                    case 2:
+                        if (forward.get()) {
+                            if (finalListIterator.hasPrevious()) {
+                                finalListIterator.previous();
+                            }
+                            forward.set(false);
+                        }
+                        if (finalListIterator.hasPrevious()) {
+                            System.out.println("Now Playing " + finalListIterator.previous().toString());
+                        } else {
+                            System.out.println("Start of playlist " + p.getPlaylistName());
+                            forward.set(true);
+                        }
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        break;
+                    case 5:
+                        break;
+
+                }
+            }
+        });
     }
 
 

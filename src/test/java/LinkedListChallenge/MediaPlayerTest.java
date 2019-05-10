@@ -23,9 +23,11 @@ class MediaPlayerTest {
     @Test
     void getAlbum() {
         //Should return the specified album
+        //Should return an Optional.empty() for non existent albums
         testMediaPlayer.addAlbum(testAlbum);
         Optional <Album> albumOptional = testMediaPlayer.getAlbum("testAlbum", "testArtist");
         albumOptional.ifPresent(album -> assertEquals(testAlbum, album));
+        assertEquals(Optional.empty(), testMediaPlayer.getAlbum("nonExistent", "testArtist"));
     }
 
     @Test

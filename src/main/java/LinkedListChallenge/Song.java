@@ -17,4 +17,9 @@ public class Song {
     public double getDuration() {
         return duration;
     }
+
+    @Override
+    public String toString() {
+        return this.getSongTitle() + ": " + this.getDuration();
+    }
 }
