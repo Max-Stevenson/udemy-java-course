@@ -7,6 +7,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.Optional;
+import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
@@ -44,15 +45,4 @@ class MediaPlayerTest {
                 "testAlbum", "testArtist", "testPlaylist");
         assertEquals(testSong, testMediaPlayer.getPlaylist("testPlaylist").get().getSongs().get(0));
     }
-
-//    @Test
-//    void playPlaylist() {
-//        String expected = "Now playing testSong: 1.00";
-//        testAlbum.addSong(testSong);
-//        testMediaPlayer.addAlbum(testAlbum);
-//        testMediaPlayer.createNewPlaylist("testPlaylist");
-//        testMediaPlayer.addSongToPlaylist("testSong",
-//                "testAlbum", "testArtist", "testPlaylist");
-//        testMediaPlayer.playPlaylist("testPlaylist");
-//    }
 }

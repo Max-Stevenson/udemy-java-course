@@ -96,9 +96,10 @@ public class MediaPlayer {
         playlist.ifPresent(p -> {
             printMenu();
             while (!quit.get()){
-                int action = scanner.nextInt();
+                String action = scanner.next();
                 scanner.nextLine();
-                switch (action) {
+                int choice = Integer.parseInt(action);
+                switch (choice) {
                     case 0:
                         System.out.println("Exiting Playlist");
                         quit.set(true);
