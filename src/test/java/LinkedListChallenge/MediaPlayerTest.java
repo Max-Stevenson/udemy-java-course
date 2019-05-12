@@ -2,9 +2,14 @@ package LinkedListChallenge;
 
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.io.PrintStream;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
 
 class MediaPlayerTest {
     private MediaPlayer testMediaPlayer = new MediaPlayer();
@@ -40,13 +45,14 @@ class MediaPlayerTest {
         assertEquals(testSong, testMediaPlayer.getPlaylist("testPlaylist").get().getSongs().get(0));
     }
 
-    @Test
-    void playPlaylist() {
-        testAlbum.addSong(testSong);
-        testMediaPlayer.addAlbum(testAlbum);
-        testMediaPlayer.createNewPlaylist("testPlaylist");
-        testMediaPlayer.addSongToPlaylist("testSong",
-                "testAlbum", "testArtist", "testPlaylist");
-        testMediaPlayer.playPlaylist("testPlaylist");
-    }
+//    @Test
+//    void playPlaylist() {
+//        String expected = "Now playing testSong: 1.00";
+//        testAlbum.addSong(testSong);
+//        testMediaPlayer.addAlbum(testAlbum);
+//        testMediaPlayer.createNewPlaylist("testPlaylist");
+//        testMediaPlayer.addSongToPlaylist("testSong",
+//                "testAlbum", "testArtist", "testPlaylist");
+//        testMediaPlayer.playPlaylist("testPlaylist");
+//    }
 }

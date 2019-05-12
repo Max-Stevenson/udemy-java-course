@@ -78,7 +78,8 @@ public class MediaPlayer {
                         "2 - Previous song\n" +
                         "3 - Replay song\n" +
                         "4 - List songs in playlist\n" +
-                        "5 - Show menu"
+                        "5 - Show menu\n" +
+                        "6 - Delete song"
         );
     }
 
@@ -97,7 +98,6 @@ public class MediaPlayer {
             while (!quit.get()){
                 int action = scanner.nextInt();
                 scanner.nextLine();
-
                 switch (action) {
                     case 0:
                         System.out.println("Exiting Playlist");
@@ -153,6 +153,16 @@ public class MediaPlayer {
                         break;
                     case 5:
                         this.printMenu();
+                        break;
+                    case 6:
+                        if (p.getSongs().size() > 0) {
+                            finalListIterator.remove();
+                            if (finalListIterator.hasNext()) {
+                                System.out.println("Now playing " + finalListIterator.next().toString());
+                            } else if (finalListIterator.hasPrevious()) {
+                                System.out.println("Now playing " + finalListIterator.previous().toString());
+                            }
+                        }
                         break;
                 }
             }
