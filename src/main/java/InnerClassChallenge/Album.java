@@ -1,4 +1,4 @@
-package InnerClassesChallenge;
+package InnerClassChallenge;
 
 import java.util.ArrayList;
 import java.util.Optional;

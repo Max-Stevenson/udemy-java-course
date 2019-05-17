@@ -1,4 +1,4 @@
-package InnerClassesChallenge;
+package InnerClassChallenge;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;

@@ -1,4 +1,4 @@
-package InnerClassesChallenge;
+package InnerClassChallenge;
 
 
 public class InnerClassesChallengeApp {

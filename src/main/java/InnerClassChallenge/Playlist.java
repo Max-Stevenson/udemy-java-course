@@ -1,4 +1,4 @@
-package InnerClassesChallenge;
+package InnerClassChallenge;
 
 import java.util.LinkedList;
 
