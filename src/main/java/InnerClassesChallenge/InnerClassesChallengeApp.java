@@ -1,6 +1,7 @@
-package LinkedListChallenge;
+package InnerClassesChallenge;
 
-public class LinkedListChallengeApp {
+
+public class InnerClassesChallengeApp {
     public static void main(String[] args) {
         MediaPlayer mediaPlayer = new MediaPlayer();
         Album albumOne = new Album("testAlbum", "testArtist");
