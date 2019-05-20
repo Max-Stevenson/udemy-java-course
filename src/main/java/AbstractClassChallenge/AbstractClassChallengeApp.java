@@ -10,6 +10,8 @@ public class AbstractClassChallengeApp {
             tree.addItem(new Node(s));
         }
 
-       tree.traverse(tree.getRoot());
+        tree.traverse(tree.getRoot());
+        tree.removeItem(new Node("Power"));
+        tree.traverse(tree.getRoot());
     }
 }
