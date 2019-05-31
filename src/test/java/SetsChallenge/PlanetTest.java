@@ -5,9 +5,9 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PlanetTest {
-    private Planet testPlanet = new Planet("testPlanet", 365d);
-    private final HeavenlyBody testMoon = new HeavenlyBody("testMoon", 27d, HeavenlyBody.BodyTypes.MOON);
-    private final HeavenlyBody notAMoon = new HeavenlyBody("notAMoon", 100d, HeavenlyBody.BodyTypes.ASTEROID);
+    private HeavenlyBody testPlanet = new Planet("testPlanet", 365d);
+    private final HeavenlyBody testMoon = new Moon("testMoon", 27d);
+    private final HeavenlyBody notAMoon = new DwarfPlanet("notAMoon", 100d);
 
     @Test
     void addSatellite() {
