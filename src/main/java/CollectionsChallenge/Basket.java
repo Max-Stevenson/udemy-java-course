@@ -17,13 +17,33 @@ public class Basket {
         if ((item != null) && (quantity > 0)) {
             int inBasket = list.getOrDefault(item, 0);
             list.put(item, inBasket + quantity);
-            return inBasket;
+            return list.getOrDefault(item, 0);
+        }
+        return 0;
+    }
+
+    public int removeFromBasket(StockItem item, int quantity) {
+        if ((item != null) && (quantity > 0)) {
+            int inBasket = list.getOrDefault(item, 0);
+            int newQuantity = inBasket + quantity;
+
+            if (newQuantity > 0) {
+                list.put(item, newQuantity);
+                return quantity;
+            } else if (newQuantity == 0 ) {
+                list.remove(item);
+                return quantity;
+            }
         }
         return 0;
     }
 
     public Map<StockItem, Integer> getItems() {
         return Collections.unmodifiableMap(list);
+    }
+
+    public void clearBasket() {
+        this.list.clear();
     }
 
     @Override

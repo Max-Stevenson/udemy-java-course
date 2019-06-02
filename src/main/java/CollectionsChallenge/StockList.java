@@ -61,7 +61,7 @@ public class StockList {
         return Collections.unmodifiableMap(prices);
     }
 
-    public Map<String, StockItem> Items() {
+    public Map<String, StockItem> getItems() {
         return Collections.unmodifiableMap(list);
     }
 
