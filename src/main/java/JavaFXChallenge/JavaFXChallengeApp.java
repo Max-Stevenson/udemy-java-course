@@ -12,7 +12,7 @@ public class JavaFXChallengeApp extends Application {
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/mainwindow.fxml"));
         primaryStage.setTitle("TodoList");
-        primaryStage.setScene(new Scene(root, 500, 500));
+        primaryStage.setScene(new Scene(root, 900, 500));
         primaryStage.show();
     }
 
