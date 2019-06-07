@@ -6,12 +6,31 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.scene.text.Font?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="JavaFXChallenge.Controller">
     <left>
         <ListView fx:id="todoListView">
-
         </ListView>
     </left>
+    <center>
+        <VBox style="-fx-background-color: white">
+            <TextArea fx:id="todoItemDetails" VBox.vgrow="ALWAYS"/>
+            <HBox>
+                <Label text="Due: " style="-fx-background-color: white">
+                    <font>
+                        <Font name="Times New Roman bold" size="20" >
+                        </Font>
+                    </font>
+                </Label>
+                <Label fx:id="deadlineLabel" style="-fx-background-color: white">
+                    <font>
+                        <Font name="Times New Roman bold" size="20" >
+                        </Font>
+                    </font>
+                </Label>
+            </HBox>
+        </VBox>
+    </center>
 </BorderPane>
