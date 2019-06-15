@@ -13,7 +13,7 @@ public class JavaFXChallengeApp extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/mainwindow.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/mainWindow.fxml"));
         primaryStage.setTitle("TodoList");
         primaryStage.setScene(new Scene(root, 900, 500));
         primaryStage.show();
