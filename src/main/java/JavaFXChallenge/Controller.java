@@ -1,16 +1,17 @@
 package JavaFXChallenge;
 
+import JavaFXChallenge.model.DialogController;
 import JavaFXChallenge.model.TodoData;
 import JavaFXChallenge.model.TodoItem;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import java.io.IOException;
 import java.time.format.DateTimeFormatter;
+import java.util.Optional;
 
 public class Controller {
 
@@ -44,10 +45,13 @@ public class Controller {
     @FXML
     public void showNewItemDialog() {
         Dialog<ButtonType> dialog = new Dialog<>();
+        dialog.setTitle("Add New Todo Item");
+        dialog.setHeaderText("Use this dialog to create a new todo item");
         dialog.initOwner(mainBorderPane.getScene().getWindow());
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/fxml/todoItem.fxml"));
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/fxml/todoItem.fxml"));
-            dialog.getDialogPane().setContent(root);
+            dialog.getDialogPane().setContent(loader.load());
         } catch (IOException e) {
             System.out.println("Could not load dialog");
             e.printStackTrace();
@@ -55,11 +59,14 @@ public class Controller {
         }
         dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
         dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
-        dialog.showAndWait();
-    }
-
-    @FXML
-    public void handleClickListView() {
-
+        Optional<ButtonType> result = dialog.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            DialogController controller = loader.getController();
+            TodoItem newItem = controller.processResults();
+            todoListView.getItems().setAll(TodoData.getInstance().getTodoItemList());
+            todoListView.getSelectionModel().select(newItem);
+        } else {
+            System.out.println("cancelled pressed");
+        }
     }
 }
