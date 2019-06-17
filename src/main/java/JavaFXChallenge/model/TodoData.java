@@ -80,6 +80,10 @@ public class TodoData {
         }
     }
 
+    public void deleteTodoItem(TodoItem item) {
+        todoItemList.remove(item);
+    }
+
 
     public void addTodoItem(TodoItem item) {
         todoItemList.add(item);
