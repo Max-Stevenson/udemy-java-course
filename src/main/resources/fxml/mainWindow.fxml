@@ -18,7 +18,7 @@
                 <Menu text="File">
                     <MenuItem text="New" onAction="#showNewItemDialog"/>
                     <SeparatorMenuItem/>
-                    <MenuItem text="Exit"/>
+                    <MenuItem text="Exit" onAction="#handleExit"/>
                 </Menu>
             </MenuBar>
             <ToolBar>
@@ -33,6 +33,16 @@
                             </ImageView>
                         </graphic>
                     </Button>
+                    <ToggleButton fx:id="filterToggle" text="Today's Items" onAction="#handFilter">
+                        <tooltip>
+                            <Tooltip text="Show only today's items"/>
+                        </tooltip>
+                        <!--<graphic>-->
+                            <!--<ImageView>-->
+                                <!--<Image url="" />-->
+                            <!--</ImageView>-->
+                        <!--</graphic>-->
+                    </ToggleButton>
                 </HBox>
             </ToolBar>
         </VBox>
