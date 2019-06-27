@@ -141,7 +141,7 @@ public class Controller {
         dialog.setHeaderText("Use this dialog to create a new todo item");
         dialog.initOwner(mainBorderPane.getScene().getWindow());
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/fxml/todoItem.fxml"));
+        loader.setLocation(getClass().getResource("/JavaFXChallenge/fxml/todoItem.fxml"));
         try {
             dialog.getDialogPane().setContent(loader.load());
         } catch (IOException e) {
