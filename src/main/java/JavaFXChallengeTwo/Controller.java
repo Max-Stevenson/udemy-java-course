@@ -48,7 +48,7 @@ public class Controller {
         Optional<ButtonType> result = dialog.showAndWait();
         if (result.isPresent() && result.get() == ButtonType.OK) {
             DialogController dialogController = loader.getController();
-            Contact newContact =  dialogController.getNewContact();
+            Contact newContact = dialogController.getNewContact();
             contactData.addContact(newContact);
             contactData.saveContacts();
         }
@@ -89,6 +89,30 @@ public class Controller {
         if (result.isPresent() && result.get() == ButtonType.OK) {
             dialogController.updateContact(selectedContact);
             tableView.refresh();
+            contactData.saveContacts();
+        }
+    }
+
+    @FXML
+    public void deleteContact() {
+        Contact selectedContact = tableView.getSelectionModel().getSelectedItem();
+        if (selectedContact == null) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("No Contact Selected");
+            alert.setHeaderText(null);
+            alert.setContentText("Please select the contact you want to delete");
+            alert.showAndWait();
+            return;
+        }
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Delete Contact");
+        alert.setHeaderText(null);
+        alert.setContentText("Are you should you want to delete " + selectedContact.getFirstName() + " "
+                + selectedContact.getLastName()+ "?");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            contactData.deleteContact(selectedContact);
             contactData.saveContacts();
         }
     }
