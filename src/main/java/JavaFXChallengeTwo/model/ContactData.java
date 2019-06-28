@@ -1,5 +1,6 @@
 package JavaFXChallengeTwo.model;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import javax.xml.stream.*;
@@ -22,10 +23,20 @@ public class ContactData {
     private ObservableList<Contact> contacts;
 
     public ContactData() {
-        // *** initialize the contacts list here ***
+        contacts = FXCollections.observableArrayList();
     }
 
-    // *** Add methods to add/delete/access contacts here ***
+    public ObservableList<Contact> getContacts() {
+        return contacts;
+    }
+
+    public void addContact(Contact contact) {
+        contacts.add(contact);
+    }
+
+    public void deleteContact(Contact contact) {
+        contacts.remove(contact);
+    }
 
     public void loadContacts() {
         try {
