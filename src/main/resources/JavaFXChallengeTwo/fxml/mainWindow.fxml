@@ -9,8 +9,10 @@
             <menus>
                 <Menu text="Contacts">
                     <items>
-                        <MenuItem text="Add" onAction="#showAddContactDialog">
-                        </MenuItem>
+                        <MenuItem text="Add" onAction="#showAddContactDialog"/>
+                    </items>
+                    <items>
+                        <MenuItem text="Edit" onAction="#showEditContactDialog"/>
                     </items>
                 </Menu>
             </menus>
