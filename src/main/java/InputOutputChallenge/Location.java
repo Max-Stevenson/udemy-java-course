@@ -1,4 +1,4 @@
-package InputOutputLecture;
+package InputOutputChallenge;
 
 import java.util.HashMap;
 import java.util.Map;
