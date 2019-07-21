@@ -1,6 +1,6 @@
 package InputOutputChallenge;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
@@ -15,9 +15,9 @@ public class Location {
         this.locationID = locationID;
         this.description = description;
         if(exits != null) {
-            this.exits = new HashMap<String, Integer>(exits);
+            this.exits = new LinkedHashMap<String, Integer>(exits);
         } else {
-            this.exits = new HashMap<String, Integer>();
+            this.exits = new LinkedHashMap<String, Integer>();
         }
         this.exits.put("Q", 0);
     }
@@ -39,6 +39,6 @@ public class Location {
     }
 
     public Map<String, Integer> getExits() {
-        return new HashMap<String, Integer>(exits);
+        return new LinkedHashMap<String, Integer>(exits);
     }
 }
